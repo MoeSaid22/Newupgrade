@@ -1,0 +1,1234 @@
+﻿[
+    {
+        "ID":  1,
+        "IP_Subnet":  "192.168.111.0/24",
+        "VLAN_ID":  101,
+        "VLAN_Name":  "Net",
+        "Site_Name":  "CDC1"
+    },
+    {
+        "ID":  2,
+        "IP_Subnet":  "192.168.118.0/24",
+        "VLAN_ID":  102,
+        "VLAN_Name":  "User1",
+        "Site_Name":  "CDC1"
+    },
+    {
+        "ID":  3,
+        "IP_Subnet":  "192.168.119.0/24",
+        "VLAN_ID":  103,
+        "VLAN_Name":  "User2",
+        "Site_Name":  "CDC1"
+    },
+    {
+        "ID":  4,
+        "IP_Subnet":  "192.168.112.0/24",
+        "VLAN_ID":  104,
+        "VLAN_Name":  "VOIP",
+        "Site_Name":  "CDC1"
+    },
+    {
+        "ID":  5,
+        "IP_Subnet":  "192.168.113.0/24",
+        "VLAN_ID":  105,
+        "VLAN_Name":  "W-CORP",
+        "Site_Name":  "CDC1"
+    },
+    {
+        "ID":  6,
+        "IP_Subnet":  "192.168.114.0/24",
+        "VLAN_ID":  106,
+        "VLAN_Name":  "W-BYOD",
+        "Site_Name":  "CDC1"
+    },
+    {
+        "ID":  7,
+        "IP_Subnet":  "192.168.115.0/24",
+        "VLAN_ID":  107,
+        "VLAN_Name":  "W-Guest",
+        "Site_Name":  "CDC1"
+    },
+    {
+        "ID":  8,
+        "IP_Subnet":  "192.168.116.0/24",
+        "VLAN_ID":  108,
+        "VLAN_Name":  "Spare",
+        "Site_Name":  "CDC1"
+    },
+    {
+        "ID":  9,
+        "IP_Subnet":  "192.168.117.0/24",
+        "VLAN_ID":  109,
+        "VLAN_Name":  "DMZ",
+        "Site_Name":  "CDC1"
+    },
+    {
+        "ID":  10,
+        "IP_Subnet":  "192.168.250.0/24",
+        "VLAN_ID":  100,
+        "VLAN_Name":  "SVR",
+        "Site_Name":  "CDC2"
+    },
+    {
+        "ID":  11,
+        "IP_Subnet":  "192.168.253.0/24",
+        "VLAN_ID":  102,
+        "VLAN_Name":  "User1",
+        "Site_Name":  "CDC2"
+    },
+    {
+        "ID":  12,
+        "IP_Subnet":  "192.168.254.0/24",
+        "VLAN_ID":  103,
+        "VLAN_Name":  "User2",
+        "Site_Name":  "CDC2"
+    },
+    {
+        "ID":  13,
+        "IP_Subnet":  "192.168.252.0/27",
+        "VLAN_ID":  104,
+        "VLAN_Name":  "VOIP",
+        "Site_Name":  "CDC2"
+    },
+    {
+        "ID":  14,
+        "IP_Subnet":  "192.168.252.32/27",
+        "VLAN_ID":  105,
+        "VLAN_Name":  "W-CORP",
+        "Site_Name":  "CDC2"
+    },
+    {
+        "ID":  15,
+        "IP_Subnet":  "192.168.252.64/27",
+        "VLAN_ID":  106,
+        "VLAN_Name":  "W-BYOD",
+        "Site_Name":  "CDC2"
+    },
+    {
+        "ID":  16,
+        "IP_Subnet":  "192.168.252.96/27",
+        "VLAN_ID":  107,
+        "VLAN_Name":  "W-Guest",
+        "Site_Name":  "CDC2"
+    },
+    {
+        "ID":  17,
+        "IP_Subnet":  "192.168.252.128/27",
+        "VLAN_ID":  108,
+        "VLAN_Name":  "Spare",
+        "Site_Name":  "CDC2"
+    },
+    {
+        "ID":  18,
+        "IP_Subnet":  "192.168.252.160/27",
+        "VLAN_ID":  109,
+        "VLAN_Name":  "DMZ",
+        "Site_Name":  "CDC2"
+    },
+    {
+        "ID":  19,
+        "IP_Subnet":  "10.40.110.0/24",
+        "VLAN_ID":  110,
+        "VLAN_Name":  "CCTV",
+        "Site_Name":  "CDC2"
+    },
+    {
+        "ID":  20,
+        "IP_Subnet":  "10.40.10.0/24",
+        "VLAN_ID":  2240,
+        "VLAN_Name":  "ActiveDir",
+        "Site_Name":  "CDC2"
+    },
+    {
+        "ID":  21,
+        "IP_Subnet":  "10.40.20.0/24",
+        "VLAN_ID":  2241,
+        "VLAN_Name":  "ITToolsvCD",
+        "Site_Name":  "CDC2"
+    },
+    {
+        "ID":  22,
+        "IP_Subnet":  "10.40.50.0/24",
+        "VLAN_ID":  2242,
+        "VLAN_Name":  "ProdvCD",
+        "Site_Name":  "CDC2"
+    },
+    {
+        "ID":  23,
+        "IP_Subnet":  "192.168.100.0/24",
+        "VLAN_ID":  100,
+        "VLAN_Name":  "Server",
+        "Site_Name":  "CBLF"
+    },
+    {
+        "ID":  24,
+        "IP_Subnet":  "192.168.101.0/24",
+        "VLAN_ID":  101,
+        "VLAN_Name":  "Network",
+        "Site_Name":  "CBLF"
+    },
+    {
+        "ID":  25,
+        "IP_Subnet":  "192.168.102.0/24",
+        "VLAN_ID":  102,
+        "VLAN_Name":  "User 1",
+        "Site_Name":  "CBLF"
+    },
+    {
+        "ID":  26,
+        "IP_Subnet":  "192.168.103.0/24",
+        "VLAN_ID":  103,
+        "VLAN_Name":  "User 2",
+        "Site_Name":  "CBLF"
+    },
+    {
+        "ID":  27,
+        "IP_Subnet":  "192.168.104.0/24",
+        "VLAN_ID":  104,
+        "VLAN_Name":  "Voip",
+        "Site_Name":  "CBLF"
+    },
+    {
+        "ID":  28,
+        "IP_Subnet":  "192.168.105.0/24",
+        "VLAN_ID":  105,
+        "VLAN_Name":  "Wi-Fi Corp",
+        "Site_Name":  "CBLF"
+    },
+    {
+        "ID":  29,
+        "IP_Subnet":  "192.168.106.0/24",
+        "VLAN_ID":  106,
+        "VLAN_Name":  "Wi-Fi BYOD",
+        "Site_Name":  "CBLF"
+    },
+    {
+        "ID":  30,
+        "IP_Subnet":  "192.168.107.0/24",
+        "VLAN_ID":  107,
+        "VLAN_Name":  "Wi-Fi Guest",
+        "Site_Name":  "CBLF"
+    },
+    {
+        "ID":  31,
+        "IP_Subnet":  "192.168.108.0/24",
+        "VLAN_ID":  108,
+        "VLAN_Name":  "TBT",
+        "Site_Name":  "CBLF"
+    },
+    {
+        "ID":  32,
+        "IP_Subnet":  "192.168.109.0/24",
+        "VLAN_ID":  109,
+        "VLAN_Name":  "DMZ",
+        "Site_Name":  "CBLF"
+    },
+    {
+        "ID":  33,
+        "IP_Subnet":  "10.101.110.0/24",
+        "VLAN_ID":  110,
+        "VLAN_Name":  "CCTV",
+        "Site_Name":  "CBLF"
+    },
+    {
+        "ID":  34,
+        "IP_Subnet":  "10.102.10.0/24",
+        "VLAN_ID":  100,
+        "VLAN_Name":  "Server",
+        "Site_Name":  "CCAR"
+    },
+    {
+        "ID":  35,
+        "IP_Subnet":  "10.102.20.0/24",
+        "VLAN_ID":  101,
+        "VLAN_Name":  "Network",
+        "Site_Name":  "CCAR"
+    },
+    {
+        "ID":  36,
+        "IP_Subnet":  "10.102.102.0/24",
+        "VLAN_ID":  102,
+        "VLAN_Name":  "User 1",
+        "Site_Name":  "CCAR"
+    },
+    {
+        "ID":  37,
+        "IP_Subnet":  "10.102.103.0/24",
+        "VLAN_ID":  103,
+        "VLAN_Name":  "User 2",
+        "Site_Name":  "CCAR"
+    },
+    {
+        "ID":  38,
+        "IP_Subnet":  "10.102.40.0/24",
+        "VLAN_ID":  104,
+        "VLAN_Name":  "Voip",
+        "Site_Name":  "CCAR"
+    },
+    {
+        "ID":  39,
+        "IP_Subnet":  "10.102.50.0/24",
+        "VLAN_ID":  105,
+        "VLAN_Name":  "Wi-Fi Corp",
+        "Site_Name":  "CCAR"
+    },
+    {
+        "ID":  40,
+        "IP_Subnet":  "10.102.60.0/24",
+        "VLAN_ID":  106,
+        "VLAN_Name":  "Wi-Fi BYOD",
+        "Site_Name":  "CCAR"
+    },
+    {
+        "ID":  41,
+        "IP_Subnet":  "10.102.70.0/24",
+        "VLAN_ID":  107,
+        "VLAN_Name":  "Wi-Fi Guest",
+        "Site_Name":  "CCAR"
+    },
+    {
+        "ID":  42,
+        "IP_Subnet":  "10.102.80.0/24",
+        "VLAN_ID":  108,
+        "VLAN_Name":  "TBD",
+        "Site_Name":  "CCAR"
+    },
+    {
+        "ID":  43,
+        "IP_Subnet":  "10.102.90.0/24",
+        "VLAN_ID":  109,
+        "VLAN_Name":  "DMZ",
+        "Site_Name":  "CCAR"
+    },
+    {
+        "ID":  44,
+        "IP_Subnet":  "10.102.110.0/24",
+        "VLAN_ID":  110,
+        "VLAN_Name":  "CCTV",
+        "Site_Name":  "CCAR"
+    },
+    {
+        "ID":  45,
+        "IP_Subnet":  "192.168.230.0/24",
+        "VLAN_ID":  100,
+        "VLAN_Name":  "Server",
+        "Site_Name":  "CRCH"
+    },
+    {
+        "ID":  46,
+        "IP_Subnet":  "192.168.231.0/24",
+        "VLAN_ID":  101,
+        "VLAN_Name":  "Network",
+        "Site_Name":  "CRCH"
+    },
+    {
+        "ID":  47,
+        "IP_Subnet":  "192.168.232.0/24",
+        "VLAN_ID":  102,
+        "VLAN_Name":  "User 1",
+        "Site_Name":  "CRCH"
+    },
+    {
+        "ID":  48,
+        "IP_Subnet":  "192.168.233.0/24",
+        "VLAN_ID":  103,
+        "VLAN_Name":  "User 2",
+        "Site_Name":  "CRCH"
+    },
+    {
+        "ID":  49,
+        "IP_Subnet":  "192.168.234.0/24",
+        "VLAN_ID":  104,
+        "VLAN_Name":  "Voip",
+        "Site_Name":  "CRCH"
+    },
+    {
+        "ID":  50,
+        "IP_Subnet":  "192.168.235.0/24",
+        "VLAN_ID":  105,
+        "VLAN_Name":  "Wi-Fi Corp",
+        "Site_Name":  "CRCH"
+    },
+    {
+        "ID":  51,
+        "IP_Subnet":  "192.168.236.0/24",
+        "VLAN_ID":  106,
+        "VLAN_Name":  "Wi-Fi BYOD",
+        "Site_Name":  "CRCH"
+    },
+    {
+        "ID":  52,
+        "IP_Subnet":  "192.168.237.0/24",
+        "VLAN_ID":  107,
+        "VLAN_Name":  "Wi-Fi Guest",
+        "Site_Name":  "CRCH"
+    },
+    {
+        "ID":  53,
+        "IP_Subnet":  "192.168.238.0/24",
+        "VLAN_ID":  108,
+        "VLAN_Name":  "TBT",
+        "Site_Name":  "CRCH"
+    },
+    {
+        "ID":  54,
+        "IP_Subnet":  "192.168.239.0/24",
+        "VLAN_ID":  109,
+        "VLAN_Name":  "DMZ",
+        "Site_Name":  "CRCH"
+    },
+    {
+        "ID":  55,
+        "IP_Subnet":  "10.103.110.0/24",
+        "VLAN_ID":  110,
+        "VLAN_Name":  "CCTV",
+        "Site_Name":  "CRCH"
+    },
+    {
+        "ID":  56,
+        "IP_Subnet":  "192.168.130.0/24",
+        "VLAN_ID":  100,
+        "VLAN_Name":  "Server",
+        "Site_Name":  "CPCC"
+    },
+    {
+        "ID":  57,
+        "IP_Subnet":  "192.168.131.0/24",
+        "VLAN_ID":  101,
+        "VLAN_Name":  "Network",
+        "Site_Name":  "CPCC"
+    },
+    {
+        "ID":  58,
+        "IP_Subnet":  "192.168.132.0/24",
+        "VLAN_ID":  102,
+        "VLAN_Name":  "User 1",
+        "Site_Name":  "CPCC"
+    },
+    {
+        "ID":  59,
+        "IP_Subnet":  "192.168.133.0/24",
+        "VLAN_ID":  103,
+        "VLAN_Name":  "User 2",
+        "Site_Name":  "CPCC"
+    },
+    {
+        "ID":  60,
+        "IP_Subnet":  "192.168.134.0/24",
+        "VLAN_ID":  104,
+        "VLAN_Name":  "Voip",
+        "Site_Name":  "CPCC"
+    },
+    {
+        "ID":  61,
+        "IP_Subnet":  "192.168.135.0/24",
+        "VLAN_ID":  105,
+        "VLAN_Name":  "Wi-Fi Corp",
+        "Site_Name":  "CPCC"
+    },
+    {
+        "ID":  62,
+        "IP_Subnet":  "192.168.136.0/24",
+        "VLAN_ID":  106,
+        "VLAN_Name":  "Wi-Fi BYOD",
+        "Site_Name":  "CPCC"
+    },
+    {
+        "ID":  63,
+        "IP_Subnet":  "192.168.137.0/24",
+        "VLAN_ID":  107,
+        "VLAN_Name":  "Wi-Fi Guest",
+        "Site_Name":  "CPCC"
+    },
+    {
+        "ID":  64,
+        "IP_Subnet":  "192.168.138.0/24",
+        "VLAN_ID":  108,
+        "VLAN_Name":  "TBT",
+        "Site_Name":  "CPCC"
+    },
+    {
+        "ID":  65,
+        "IP_Subnet":  "192.168.139.0/24",
+        "VLAN_ID":  109,
+        "VLAN_Name":  "DMZ",
+        "Site_Name":  "CPCC"
+    },
+    {
+        "ID":  66,
+        "IP_Subnet":  "10.104.110.0/24",
+        "VLAN_ID":  110,
+        "VLAN_Name":  "CCTV",
+        "Site_Name":  "CPCC"
+    },
+    {
+        "ID":  67,
+        "IP_Subnet":  "10.105.10.0/24",
+        "VLAN_ID":  100,
+        "VLAN_Name":  "Server",
+        "Site_Name":  "CMAK"
+    },
+    {
+        "ID":  68,
+        "IP_Subnet":  "10.105.20.0/24",
+        "VLAN_ID":  101,
+        "VLAN_Name":  "Network",
+        "Site_Name":  "CMAK"
+    },
+    {
+        "ID":  69,
+        "IP_Subnet":  "10.105.102.0/24",
+        "VLAN_ID":  102,
+        "VLAN_Name":  "User 1",
+        "Site_Name":  "CMAK"
+    },
+    {
+        "ID":  70,
+        "IP_Subnet":  "10.105.103.0/24",
+        "VLAN_ID":  103,
+        "VLAN_Name":  "User 2",
+        "Site_Name":  "CMAK"
+    },
+    {
+        "ID":  71,
+        "IP_Subnet":  "10.105.40.0/24",
+        "VLAN_ID":  104,
+        "VLAN_Name":  "Voip",
+        "Site_Name":  "CMAK"
+    },
+    {
+        "ID":  72,
+        "IP_Subnet":  "10.105.50.0/24",
+        "VLAN_ID":  105,
+        "VLAN_Name":  "Wi-Fi Corp",
+        "Site_Name":  "CMAK"
+    },
+    {
+        "ID":  73,
+        "IP_Subnet":  "10.105.60.0/24",
+        "VLAN_ID":  106,
+        "VLAN_Name":  "Wi-Fi BYOD",
+        "Site_Name":  "CMAK"
+    },
+    {
+        "ID":  74,
+        "IP_Subnet":  "10.105.70.0/24",
+        "VLAN_ID":  107,
+        "VLAN_Name":  "Wi-Fi Guest",
+        "Site_Name":  "CMAK"
+    },
+    {
+        "ID":  75,
+        "IP_Subnet":  "10.105.80.0/24",
+        "VLAN_ID":  108,
+        "VLAN_Name":  "TBT",
+        "Site_Name":  "CMAK"
+    },
+    {
+        "ID":  76,
+        "IP_Subnet":  "10.105.90.0/24",
+        "VLAN_ID":  109,
+        "VLAN_Name":  "DMZ",
+        "Site_Name":  "CMAK"
+    },
+    {
+        "ID":  77,
+        "IP_Subnet":  "10.105.110.0/24",
+        "VLAN_ID":  110,
+        "VLAN_Name":  "CCTV",
+        "Site_Name":  "CMAK"
+    },
+    {
+        "ID":  78,
+        "IP_Subnet":  "192.168.140.0/24",
+        "VLAN_ID":  100,
+        "VLAN_Name":  "Server",
+        "Site_Name":  "CAMI"
+    },
+    {
+        "ID":  79,
+        "IP_Subnet":  "192.168.141.0/24",
+        "VLAN_ID":  101,
+        "VLAN_Name":  "Network",
+        "Site_Name":  "CAMI"
+    },
+    {
+        "ID":  80,
+        "IP_Subnet":  "192.168.142.0/24",
+        "VLAN_ID":  102,
+        "VLAN_Name":  "User 1",
+        "Site_Name":  "CAMI"
+    },
+    {
+        "ID":  81,
+        "IP_Subnet":  "192.168.143.0/24",
+        "VLAN_ID":  103,
+        "VLAN_Name":  "User 2",
+        "Site_Name":  "CAMI"
+    },
+    {
+        "ID":  82,
+        "IP_Subnet":  "192.168.144.0/24",
+        "VLAN_ID":  104,
+        "VLAN_Name":  "Voip",
+        "Site_Name":  "CAMI"
+    },
+    {
+        "ID":  83,
+        "IP_Subnet":  "192.168.145.0/24",
+        "VLAN_ID":  105,
+        "VLAN_Name":  "Wi-Fi Corp",
+        "Site_Name":  "CAMI"
+    },
+    {
+        "ID":  84,
+        "IP_Subnet":  "192.168.146.0/24",
+        "VLAN_ID":  106,
+        "VLAN_Name":  "Wi-Fi BYOD",
+        "Site_Name":  "CAMI"
+    },
+    {
+        "ID":  85,
+        "IP_Subnet":  "192.168.147.0/24",
+        "VLAN_ID":  107,
+        "VLAN_Name":  "Wi-Fi Guest",
+        "Site_Name":  "CAMI"
+    },
+    {
+        "ID":  86,
+        "IP_Subnet":  "192.168.148.0/24",
+        "VLAN_ID":  108,
+        "VLAN_Name":  "TBT",
+        "Site_Name":  "CAMI"
+    },
+    {
+        "ID":  87,
+        "IP_Subnet":  "192.168.149.0/24",
+        "VLAN_ID":  109,
+        "VLAN_Name":  "DMZ",
+        "Site_Name":  "CAMI"
+    },
+    {
+        "ID":  88,
+        "IP_Subnet":  "10.106.110.0/24",
+        "VLAN_ID":  110,
+        "VLAN_Name":  "CCTV",
+        "Site_Name":  "CAMI"
+    },
+    {
+        "ID":  89,
+        "IP_Subnet":  "10.107.10.0/24",
+        "VLAN_ID":  100,
+        "VLAN_Name":  "Server",
+        "Site_Name":  "CSSW"
+    },
+    {
+        "ID":  90,
+        "IP_Subnet":  "10.107.20.0/24",
+        "VLAN_ID":  101,
+        "VLAN_Name":  "Network",
+        "Site_Name":  "CSSW"
+    },
+    {
+        "ID":  91,
+        "IP_Subnet":  "10.107.102.0/24",
+        "VLAN_ID":  102,
+        "VLAN_Name":  "User 1",
+        "Site_Name":  "CSSW"
+    },
+    {
+        "ID":  92,
+        "IP_Subnet":  "10.107.103.0/24",
+        "VLAN_ID":  103,
+        "VLAN_Name":  "User 2",
+        "Site_Name":  "CSSW"
+    },
+    {
+        "ID":  93,
+        "IP_Subnet":  "10.107.40.0/24",
+        "VLAN_ID":  104,
+        "VLAN_Name":  "Voip",
+        "Site_Name":  "CSSW"
+    },
+    {
+        "ID":  94,
+        "IP_Subnet":  "10.107.50.0/24",
+        "VLAN_ID":  105,
+        "VLAN_Name":  "Wi-Fi Corp",
+        "Site_Name":  "CSSW"
+    },
+    {
+        "ID":  95,
+        "IP_Subnet":  "10.107.60.0/24",
+        "VLAN_ID":  106,
+        "VLAN_Name":  "Wi-Fi BYOD",
+        "Site_Name":  "CSSW"
+    },
+    {
+        "ID":  96,
+        "IP_Subnet":  "10.107.70.0/24",
+        "VLAN_ID":  107,
+        "VLAN_Name":  "Wi-Fi Guest",
+        "Site_Name":  "CSSW"
+    },
+    {
+        "ID":  97,
+        "IP_Subnet":  "10.107.80.0/24",
+        "VLAN_ID":  108,
+        "VLAN_Name":  "TBT",
+        "Site_Name":  "CSSW"
+    },
+    {
+        "ID":  98,
+        "IP_Subnet":  "10.107.90.0/24",
+        "VLAN_ID":  109,
+        "VLAN_Name":  "DMZ",
+        "Site_Name":  "CSSW"
+    },
+    {
+        "ID":  99,
+        "IP_Subnet":  "10.107.110.0/24",
+        "VLAN_ID":  110,
+        "VLAN_Name":  "CCTV",
+        "Site_Name":  "CSSW"
+    },
+    {
+        "ID":  100,
+        "IP_Subnet":  "192.168.90.0/24",
+        "VLAN_ID":  100,
+        "VLAN_Name":  "Server",
+        "Site_Name":  "C4TH"
+    },
+    {
+        "ID":  101,
+        "IP_Subnet":  "192.168.91.0/24",
+        "VLAN_ID":  101,
+        "VLAN_Name":  "Network",
+        "Site_Name":  "C4TH"
+    },
+    {
+        "ID":  102,
+        "IP_Subnet":  "192.168.92.0/24",
+        "VLAN_ID":  102,
+        "VLAN_Name":  "User 1",
+        "Site_Name":  "C4TH"
+    },
+    {
+        "ID":  103,
+        "IP_Subnet":  "192.168.93.0/24",
+        "VLAN_ID":  103,
+        "VLAN_Name":  "User 2",
+        "Site_Name":  "C4TH"
+    },
+    {
+        "ID":  104,
+        "IP_Subnet":  "192.168.94.0/24",
+        "VLAN_ID":  104,
+        "VLAN_Name":  "Voip",
+        "Site_Name":  "C4TH"
+    },
+    {
+        "ID":  105,
+        "IP_Subnet":  "192.168.95.0/24",
+        "VLAN_ID":  105,
+        "VLAN_Name":  "Wi-Fi Corp",
+        "Site_Name":  "C4TH"
+    },
+    {
+        "ID":  106,
+        "IP_Subnet":  "192.168.96.0/24",
+        "VLAN_ID":  106,
+        "VLAN_Name":  "Wi-Fi BYOD",
+        "Site_Name":  "C4TH"
+    },
+    {
+        "ID":  107,
+        "IP_Subnet":  "192.168.97.0/24",
+        "VLAN_ID":  107,
+        "VLAN_Name":  "Wi-Fi Guest",
+        "Site_Name":  "C4TH"
+    },
+    {
+        "ID":  108,
+        "IP_Subnet":  "192.168.98.0/24",
+        "VLAN_ID":  108,
+        "VLAN_Name":  "TBT",
+        "Site_Name":  "C4TH"
+    },
+    {
+        "ID":  109,
+        "IP_Subnet":  "192.168.99.0/24",
+        "VLAN_ID":  109,
+        "VLAN_Name":  "DMZ",
+        "Site_Name":  "C4TH"
+    },
+    {
+        "ID":  110,
+        "IP_Subnet":  "10.108.110.0/24",
+        "VLAN_ID":  110,
+        "VLAN_Name":  "CCTV",
+        "Site_Name":  "C4TH"
+    },
+    {
+        "ID":  111,
+        "IP_Subnet":  "192.168.160.0/24",
+        "VLAN_ID":  100,
+        "VLAN_Name":  "Server",
+        "Site_Name":  "CELG"
+    },
+    {
+        "ID":  112,
+        "IP_Subnet":  "192.168.161.0/24",
+        "VLAN_ID":  101,
+        "VLAN_Name":  "Network",
+        "Site_Name":  "CELG"
+    },
+    {
+        "ID":  113,
+        "IP_Subnet":  "192.168.162.0/24",
+        "VLAN_ID":  102,
+        "VLAN_Name":  "User 1",
+        "Site_Name":  "CELG"
+    },
+    {
+        "ID":  114,
+        "IP_Subnet":  "192.168.163.0/24",
+        "VLAN_ID":  103,
+        "VLAN_Name":  "User 2",
+        "Site_Name":  "CELG"
+    },
+    {
+        "ID":  115,
+        "IP_Subnet":  "192.168.164.0/24",
+        "VLAN_ID":  104,
+        "VLAN_Name":  "Voip",
+        "Site_Name":  "CELG"
+    },
+    {
+        "ID":  116,
+        "IP_Subnet":  "192.168.165.0/24",
+        "VLAN_ID":  105,
+        "VLAN_Name":  "Wi-Fi Corp",
+        "Site_Name":  "CELG"
+    },
+    {
+        "ID":  117,
+        "IP_Subnet":  "192.168.166.0/24",
+        "VLAN_ID":  106,
+        "VLAN_Name":  "Wi-Fi BYOD",
+        "Site_Name":  "CELG"
+    },
+    {
+        "ID":  118,
+        "IP_Subnet":  "192.168.167.0/24",
+        "VLAN_ID":  107,
+        "VLAN_Name":  "Wi-Fi Guest",
+        "Site_Name":  "CELG"
+    },
+    {
+        "ID":  119,
+        "IP_Subnet":  "192.168.168.0/24",
+        "VLAN_ID":  108,
+        "VLAN_Name":  "TBT",
+        "Site_Name":  "CELG"
+    },
+    {
+        "ID":  120,
+        "IP_Subnet":  "192.168.169.0/24",
+        "VLAN_ID":  109,
+        "VLAN_Name":  "DMZ",
+        "Site_Name":  "CELG"
+    },
+    {
+        "ID":  121,
+        "IP_Subnet":  "10.109.110.0/24",
+        "VLAN_ID":  110,
+        "VLAN_Name":  "CCTV",
+        "Site_Name":  "CELG"
+    },
+    {
+        "ID":  122,
+        "IP_Subnet":  "192.168.170.0/24",
+        "VLAN_ID":  100,
+        "VLAN_Name":  "Server",
+        "Site_Name":  "CNEL"
+    },
+    {
+        "ID":  123,
+        "IP_Subnet":  "192.168.171.0/24",
+        "VLAN_ID":  101,
+        "VLAN_Name":  "Network",
+        "Site_Name":  "CNEL"
+    },
+    {
+        "ID":  124,
+        "IP_Subnet":  "192.168.172.0/24",
+        "VLAN_ID":  102,
+        "VLAN_Name":  "User 1",
+        "Site_Name":  "CNEL"
+    },
+    {
+        "ID":  125,
+        "IP_Subnet":  "192.168.173.0/24",
+        "VLAN_ID":  103,
+        "VLAN_Name":  "User 2",
+        "Site_Name":  "CNEL"
+    },
+    {
+        "ID":  126,
+        "IP_Subnet":  "192.168.174.0/24",
+        "VLAN_ID":  104,
+        "VLAN_Name":  "Voip",
+        "Site_Name":  "CNEL"
+    },
+    {
+        "ID":  127,
+        "IP_Subnet":  "192.168.175.0/24",
+        "VLAN_ID":  105,
+        "VLAN_Name":  "Wi-Fi Corp",
+        "Site_Name":  "CNEL"
+    },
+    {
+        "ID":  128,
+        "IP_Subnet":  "192.168.176.0/24",
+        "VLAN_ID":  106,
+        "VLAN_Name":  "Wi-Fi BYOD",
+        "Site_Name":  "CNEL"
+    },
+    {
+        "ID":  129,
+        "IP_Subnet":  "192.168.177.0/24",
+        "VLAN_ID":  107,
+        "VLAN_Name":  "Wi-Fi Guest",
+        "Site_Name":  "CNEL"
+    },
+    {
+        "ID":  130,
+        "IP_Subnet":  "192.168.178.0/24",
+        "VLAN_ID":  108,
+        "VLAN_Name":  "TBT",
+        "Site_Name":  "CNEL"
+    },
+    {
+        "ID":  131,
+        "IP_Subnet":  "192.168.179.0/24",
+        "VLAN_ID":  109,
+        "VLAN_Name":  "DMZ",
+        "Site_Name":  "CNEL"
+    },
+    {
+        "ID":  132,
+        "IP_Subnet":  "10.110.110.0/24",
+        "VLAN_ID":  110,
+        "VLAN_Name":  "CCTV",
+        "Site_Name":  "CNEL"
+    },
+    {
+        "ID":  133,
+        "IP_Subnet":  "192.168.180.0/24",
+        "VLAN_ID":  100,
+        "VLAN_Name":  "Server",
+        "Site_Name":  "CALB"
+    },
+    {
+        "ID":  134,
+        "IP_Subnet":  "192.168.181.0/24",
+        "VLAN_ID":  101,
+        "VLAN_Name":  "Network",
+        "Site_Name":  "CALB"
+    },
+    {
+        "ID":  135,
+        "IP_Subnet":  "192.168.182.0/24",
+        "VLAN_ID":  102,
+        "VLAN_Name":  "User 1",
+        "Site_Name":  "CALB"
+    },
+    {
+        "ID":  136,
+        "IP_Subnet":  "192.168.183.0/24",
+        "VLAN_ID":  103,
+        "VLAN_Name":  "User 2",
+        "Site_Name":  "CALB"
+    },
+    {
+        "ID":  137,
+        "IP_Subnet":  "192.168.184.0/24",
+        "VLAN_ID":  104,
+        "VLAN_Name":  "Voip",
+        "Site_Name":  "CALB"
+    },
+    {
+        "ID":  138,
+        "IP_Subnet":  "192.168.185.0/24",
+        "VLAN_ID":  105,
+        "VLAN_Name":  "Wi-Fi Corp",
+        "Site_Name":  "CALB"
+    },
+    {
+        "ID":  139,
+        "IP_Subnet":  "192.168.186.0/24",
+        "VLAN_ID":  106,
+        "VLAN_Name":  "Wi-Fi BYOD",
+        "Site_Name":  "CALB"
+    },
+    {
+        "ID":  140,
+        "IP_Subnet":  "192.168.187.0/24",
+        "VLAN_ID":  107,
+        "VLAN_Name":  "Wi-Fi Guest",
+        "Site_Name":  "CALB"
+    },
+    {
+        "ID":  141,
+        "IP_Subnet":  "192.168.188.0/24",
+        "VLAN_ID":  108,
+        "VLAN_Name":  "TBT",
+        "Site_Name":  "CALB"
+    },
+    {
+        "ID":  142,
+        "IP_Subnet":  "192.168.189.0/24",
+        "VLAN_ID":  109,
+        "VLAN_Name":  "DMZ",
+        "Site_Name":  "CALB"
+    },
+    {
+        "ID":  143,
+        "IP_Subnet":  "10.111.110.0/24",
+        "VLAN_ID":  110,
+        "VLAN_Name":  "CCTV",
+        "Site_Name":  "CALB"
+    },
+    {
+        "ID":  144,
+        "IP_Subnet":  "192.168.200.0/24",
+        "VLAN_ID":  100,
+        "VLAN_Name":  "Server",
+        "Site_Name":  "CVIC"
+    },
+    {
+        "ID":  145,
+        "IP_Subnet":  "192.168.201.0/24",
+        "VLAN_ID":  101,
+        "VLAN_Name":  "Network",
+        "Site_Name":  "CVIC"
+    },
+    {
+        "ID":  146,
+        "IP_Subnet":  "192.168.202.0/24",
+        "VLAN_ID":  102,
+        "VLAN_Name":  "User 1",
+        "Site_Name":  "CVIC"
+    },
+    {
+        "ID":  147,
+        "IP_Subnet":  "192.168.203.0/24",
+        "VLAN_ID":  103,
+        "VLAN_Name":  "User 2",
+        "Site_Name":  "CVIC"
+    },
+    {
+        "ID":  148,
+        "IP_Subnet":  "192.168.204.0/24",
+        "VLAN_ID":  104,
+        "VLAN_Name":  "Voip",
+        "Site_Name":  "CVIC"
+    },
+    {
+        "ID":  149,
+        "IP_Subnet":  "192.168.205.0/24",
+        "VLAN_ID":  105,
+        "VLAN_Name":  "Wi-Fi Corp",
+        "Site_Name":  "CVIC"
+    },
+    {
+        "ID":  150,
+        "IP_Subnet":  "192.168.206.0/24",
+        "VLAN_ID":  106,
+        "VLAN_Name":  "Wi-Fi BYOD",
+        "Site_Name":  "CVIC"
+    },
+    {
+        "ID":  151,
+        "IP_Subnet":  "192.168.207.0/24",
+        "VLAN_ID":  107,
+        "VLAN_Name":  "Wi-Fi Guest",
+        "Site_Name":  "CVIC"
+    },
+    {
+        "ID":  152,
+        "IP_Subnet":  "192.168.208.0/24",
+        "VLAN_ID":  108,
+        "VLAN_Name":  "TBT",
+        "Site_Name":  "CVIC"
+    },
+    {
+        "ID":  153,
+        "IP_Subnet":  "192.168.209.0/24",
+        "VLAN_ID":  109,
+        "VLAN_Name":  "DMZ",
+        "Site_Name":  "CVIC"
+    },
+    {
+        "ID":  154,
+        "IP_Subnet":  "10.112.110.0/24",
+        "VLAN_ID":  110,
+        "VLAN_Name":  "CCTV",
+        "Site_Name":  "CVIC"
+    },
+    {
+        "ID":  155,
+        "IP_Subnet":  "192.168.210.0/24",
+        "VLAN_ID":  100,
+        "VLAN_Name":  "Server",
+        "Site_Name":  "CMEM"
+    },
+    {
+        "ID":  156,
+        "IP_Subnet":  "192.168.211.0/24",
+        "VLAN_ID":  101,
+        "VLAN_Name":  "Network",
+        "Site_Name":  "CMEM"
+    },
+    {
+        "ID":  157,
+        "IP_Subnet":  "192.168.212.0/24",
+        "VLAN_ID":  102,
+        "VLAN_Name":  "User 1",
+        "Site_Name":  "CMEM"
+    },
+    {
+        "ID":  158,
+        "IP_Subnet":  "192.168.213.0/24",
+        "VLAN_ID":  103,
+        "VLAN_Name":  "User 2",
+        "Site_Name":  "CMEM"
+    },
+    {
+        "ID":  159,
+        "IP_Subnet":  "192.168.214.0/24",
+        "VLAN_ID":  104,
+        "VLAN_Name":  "Voip",
+        "Site_Name":  "CMEM"
+    },
+    {
+        "ID":  160,
+        "IP_Subnet":  "192.168.215.0/24",
+        "VLAN_ID":  105,
+        "VLAN_Name":  "Wi-Fi Corp",
+        "Site_Name":  "CMEM"
+    },
+    {
+        "ID":  161,
+        "IP_Subnet":  "192.168.216.0/24",
+        "VLAN_ID":  106,
+        "VLAN_Name":  "Wi-Fi BYOD",
+        "Site_Name":  "CMEM"
+    },
+    {
+        "ID":  162,
+        "IP_Subnet":  "192.168.217.0/24",
+        "VLAN_ID":  107,
+        "VLAN_Name":  "Wi-Fi Guest",
+        "Site_Name":  "CMEM"
+    },
+    {
+        "ID":  163,
+        "IP_Subnet":  "192.168.218.0/24",
+        "VLAN_ID":  108,
+        "VLAN_Name":  "TBT",
+        "Site_Name":  "CMEM"
+    },
+    {
+        "ID":  164,
+        "IP_Subnet":  "192.168.219.0/24",
+        "VLAN_ID":  109,
+        "VLAN_Name":  "DMZ",
+        "Site_Name":  "CMEM"
+    },
+    {
+        "ID":  165,
+        "IP_Subnet":  "10.113.110.0/24",
+        "VLAN_ID":  110,
+        "VLAN_Name":  "CCTV",
+        "Site_Name":  "CMEM"
+    },
+    {
+        "ID":  166,
+        "IP_Subnet":  "192.168.80.0/24",
+        "VLAN_ID":  100,
+        "VLAN_Name":  "Server",
+        "Site_Name":  "CLAU"
+    },
+    {
+        "ID":  167,
+        "IP_Subnet":  "192.168.81.0/24",
+        "VLAN_ID":  101,
+        "VLAN_Name":  "Network",
+        "Site_Name":  "CLAU"
+    },
+    {
+        "ID":  168,
+        "IP_Subnet":  "192.168.82.0/24",
+        "VLAN_ID":  102,
+        "VLAN_Name":  "User 1",
+        "Site_Name":  "CLAU"
+    },
+    {
+        "ID":  169,
+        "IP_Subnet":  "192.168.83.0/24",
+        "VLAN_ID":  103,
+        "VLAN_Name":  "User 2",
+        "Site_Name":  "CLAU"
+    },
+    {
+        "ID":  170,
+        "IP_Subnet":  "192.168.84.0/24",
+        "VLAN_ID":  104,
+        "VLAN_Name":  "Voip",
+        "Site_Name":  "CLAU"
+    },
+    {
+        "ID":  171,
+        "IP_Subnet":  "192.168.85.0/24",
+        "VLAN_ID":  105,
+        "VLAN_Name":  "Wi-Fi Corp",
+        "Site_Name":  "CLAU"
+    },
+    {
+        "ID":  172,
+        "IP_Subnet":  "192.168.86.0/24",
+        "VLAN_ID":  106,
+        "VLAN_Name":  "Wi-Fi BYOD",
+        "Site_Name":  "CLAU"
+    },
+    {
+        "ID":  173,
+        "IP_Subnet":  "192.168.87.0/24",
+        "VLAN_ID":  107,
+        "VLAN_Name":  "Wi-Fi Guest",
+        "Site_Name":  "CLAU"
+    },
+    {
+        "ID":  174,
+        "IP_Subnet":  "192.168.88.0/24",
+        "VLAN_ID":  108,
+        "VLAN_Name":  "TBT",
+        "Site_Name":  "CLAU"
+    },
+    {
+        "ID":  175,
+        "IP_Subnet":  "192.168.89.0/24",
+        "VLAN_ID":  109,
+        "VLAN_Name":  "DMZ",
+        "Site_Name":  "CLAU"
+    },
+    {
+        "ID":  176,
+        "IP_Subnet":  "10.114.110.0/24",
+        "VLAN_ID":  110,
+        "VLAN_Name":  "CCTV",
+        "Site_Name":  "CLAU"
+    }
+]
