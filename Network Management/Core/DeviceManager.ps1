@@ -9,10 +9,10 @@ if (Test-Path $dataModelsPath) {
     . $dataModelsPath
 }
 
-# Import utility functions from SiteImportExport.ps1
-$siteImportExportPath = Join-Path $scriptPath "SiteImportExport.ps1"
-if (Test-Path $siteImportExportPath) {
-    . $siteImportExportPath
+# Utility function - duplicated to avoid circular dependency
+function Get-SafeValue {
+    param([object]$Value)
+    if ($Value) { return $Value.ToString() } else { return "" }
 }
 
 # ===================================================================
