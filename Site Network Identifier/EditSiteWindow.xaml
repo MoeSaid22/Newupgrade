@@ -1,0 +1,604 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Edit Site" Height="600" Width="900"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="CanResize">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Tab Control - Same structure as Manage Sites -->
+        <TabControl x:Name="EditSiteTabControl" Grid.Row="0" Margin="0,0,0,10">
+            <!-- 1. Basic Info Tab -->
+            <TabItem Header="Basic Info">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Label Content="Site Code:" Grid.Row="0" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditSiteCode" Grid.Row="0" Grid.Column="1" Margin="0,2,0,2"/>
+                        
+                        <Label Content="Site Subnet:" Grid.Row="1" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditSiteSubnet" Grid.Row="1" Grid.Column="1" Margin="0,2,0,2" 
+                                 ToolTip="Enter subnet like 10.107.0.0 to auto-populate VLANs"/>
+                        
+                        <Label Content="Site Subnet Code:" Grid.Row="2" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditSiteSubnetCode" Grid.Row="2" Grid.Column="1" Margin="0,2,0,2"/>
+                        
+                        <Label Content="Site Name:" Grid.Row="3" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditSiteName" Grid.Row="3" Grid.Column="1" Margin="0,2,0,2"/>
+                        
+                        <Label Content="Site Address:" Grid.Row="4" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditSiteAddress" Grid.Row="4" Grid.Column="1" Margin="0,2,0,2"/>
+                        
+                        <Label Content="Main Contact Name:" Grid.Row="5" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditMainContactName" Grid.Row="5" Grid.Column="1" Margin="0,2,0,2"/>
+                        
+                        <Label Content="Main Contact Phone:" Grid.Row="6" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditMainContactPhone" Grid.Row="6" Grid.Column="1" Margin="0,2,0,2"/>
+                        
+                        <Label Content="Second Contact Name:" Grid.Row="7" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditSecondContactName" Grid.Row="7" Grid.Column="1" Margin="0,2,0,2"/>
+                        
+                        <Label Content="Second Contact Phone:" Grid.Row="8" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditSecondContactPhone" Grid.Row="8" Grid.Column="1" Margin="0,2,0,2"/>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+
+            <!-- 2. Switches Tab -->
+            <TabItem Header="Switches">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        
+                        <StackPanel Grid.Row="0" Orientation="Vertical" Margin="0,0,0,15">
+                            <Label Content="Number of Switches:"/>
+                            <ComboBox x:Name="cmbEditSwitchCount" Width="100" HorizontalAlignment="Left" SelectedIndex="-1">
+                                <ComboBoxItem Content="0"/>
+                                <ComboBoxItem Content="1"/>
+                                <ComboBoxItem Content="2"/>
+                                <ComboBoxItem Content="3"/>
+                                <ComboBoxItem Content="4"/>
+                                <ComboBoxItem Content="5"/>
+                                <ComboBoxItem Content="6"/>
+                                <ComboBoxItem Content="7"/>
+                                <ComboBoxItem Content="8"/>
+                                <ComboBoxItem Content="9"/>
+                                <ComboBoxItem Content="10"/>
+                            </ComboBox>
+                        </StackPanel>
+                        
+                        <Grid x:Name="stkEditSwitches" Grid.Row="1">
+                            <!-- Grid rows and columns will be added dynamically by PowerShell -->
+                        </Grid>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+
+            <!-- 3. Access Points Tab -->
+            <TabItem Header="Access Points">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        
+                        <StackPanel Grid.Row="0" Orientation="Vertical" Margin="0,0,0,15">
+                            <Label Content="Number of Access Points:"/>
+                            <ComboBox x:Name="cmbEditAPCount" Width="100" HorizontalAlignment="Left" SelectedIndex="-1">
+                                <ComboBoxItem Content="0"/>
+                                <ComboBoxItem Content="1"/>
+                                <ComboBoxItem Content="2"/>
+                                <ComboBoxItem Content="3"/>
+                                <ComboBoxItem Content="4"/>
+                                <ComboBoxItem Content="5"/>
+                                <ComboBoxItem Content="6"/>
+                                <ComboBoxItem Content="7"/>
+                                <ComboBoxItem Content="8"/>
+                                <ComboBoxItem Content="9"/>
+                                <ComboBoxItem Content="10"/>
+                            </ComboBox>
+                        </StackPanel>
+                        
+                        <Grid x:Name="stkEditAccessPoints" Grid.Row="1">
+                            <!-- Grid rows and columns will be added dynamically by PowerShell -->
+                        </Grid>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+
+            <!-- 4. Firewall Tab -->
+            <TabItem Header="Firewall">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Label Content="Management IP:" Grid.Row="0" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditFirewallIP" Grid.Row="0" Grid.Column="1" Margin="0,2,0,2"/>
+                        
+                        <Label Content="Name:" Grid.Row="1" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditFirewallName" Grid.Row="1" Grid.Column="1" Margin="0,2,0,2"/>
+                        
+                        <Label Content="Version:" Grid.Row="2" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditFirewallVersion" Grid.Row="2" Grid.Column="1" Margin="0,2,0,2"/>
+                        
+                        <Label Content="Serial Number:" Grid.Row="3" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditFirewallSN" Grid.Row="3" Grid.Column="1" Margin="0,2,0,2"/>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+
+            <!-- 5. Primary Circuit Tab -->
+            <TabItem Header="Primary Circuit">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <!-- Left Column - Circuit Info -->
+                        <Grid Grid.Column="0" Margin="0,0,10,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            
+                            <Label Content="Vendor:" Grid.Row="0" Grid.Column="0"/>
+                            <TextBox x:Name="txtEditPrimaryVendor" Grid.Row="0" Grid.Column="1" Margin="0,2,0,2"/>
+                            
+                            <Label Content="Circuit Type:" Grid.Row="1" Grid.Column="0"/>
+                            <ComboBox x:Name="cmbEditPrimaryCircuitType" Grid.Row="1" Grid.Column="1" Margin="0,2,0,2">
+                                <ComboBoxItem Content="Fiber"/>
+                                <ComboBoxItem Content="Cable"/>
+                                <ComboBoxItem Content="GPON Fiber"/>
+                            </ComboBox>
+                            
+                            <!-- GPON Fields -->
+                            <StackPanel x:Name="stkEditPrimaryGPON" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Vertical" Margin="0,5,0,5" Visibility="Collapsed">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="PPPoE Username:" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox x:Name="txtEditPrimaryPPPoEUsername" Grid.Row="0" Grid.Column="1" Margin="0,2,0,2"/>
+                                    <Label Content="PPPoE Password:" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox x:Name="txtEditPrimaryPPPoEPassword" Grid.Row="1" Grid.Column="1" Margin="0,2,0,2"/>
+                                </Grid>
+                            </StackPanel>
+                            
+                            <Label Content="Circuit ID:" Grid.Row="3" Grid.Column="0"/>
+                            <TextBox x:Name="txtEditPrimaryCircuitID" Grid.Row="3" Grid.Column="1" Margin="0,2,0,2"/>
+                            
+                            <Label Content="Download Speed:" Grid.Row="4" Grid.Column="0"/>
+                            <TextBox x:Name="txtEditPrimaryDownloadSpeed" Grid.Row="4" Grid.Column="1" Margin="0,2,0,2"/>
+                            
+                            <Label Content="Upload Speed:" Grid.Row="5" Grid.Column="0"/>
+                            <TextBox x:Name="txtEditPrimaryUploadSpeed" Grid.Row="5" Grid.Column="1" Margin="0,2,0,2"/>
+                            
+                            <Label Content="IP Address:" Grid.Row="6" Grid.Column="0"/>
+                            <TextBox x:Name="txtEditPrimaryIPAddress" Grid.Row="6" Grid.Column="1" Margin="0,2,0,2"/>
+                            
+                            <Label Content="Subnet Mask:" Grid.Row="7" Grid.Column="0"/>
+                            <TextBox x:Name="txtEditPrimarySubnetMask" Grid.Row="7" Grid.Column="1" Margin="0,2,0,2"/>
+                            
+                            <Label Content="Default Gateway:" Grid.Row="8" Grid.Column="0"/>
+                            <TextBox x:Name="txtEditPrimaryDefaultGateway" Grid.Row="8" Grid.Column="1" Margin="0,2,0,2"/>
+                            
+                            <Label Content="DNS 1:" Grid.Row="9" Grid.Column="0"/>
+                            <TextBox x:Name="txtEditPrimaryDNS1" Grid.Row="9" Grid.Column="1" Margin="0,2,0,2"/>
+                            
+                            <Label Content="DNS 2:" Grid.Row="10" Grid.Column="0"/>
+                            <TextBox x:Name="txtEditPrimaryDNS2" Grid.Row="10" Grid.Column="1" Margin="0,2,0,2"/>
+                            
+                            <Label Content="Router Model:" Grid.Row="11" Grid.Column="0"/>
+                            <TextBox x:Name="txtEditPrimaryRouterModel" Grid.Row="11" Grid.Column="1" Margin="0,2,0,2"/>
+                            
+                            <Label Content="Router Name:" Grid.Row="12" Grid.Column="0"/>
+                            <TextBox x:Name="txtEditPrimaryRouterName" Grid.Row="12" Grid.Column="1" Margin="0,2,0,2"/>
+                            
+                            <Label Content="Router S/N:" Grid.Row="13" Grid.Column="0"/>
+                            <TextBox x:Name="txtEditPrimaryRouterSN" Grid.Row="13" Grid.Column="1" Margin="0,2,0,2"/>
+                        </Grid>
+                        
+                        <!-- Right Column - Modem Section -->
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            
+                            <CheckBox x:Name="chkEditPrimaryHasModem" Content="Site has Modem" Grid.Row="0" Margin="0,0,0,10"/>
+                            
+                            <StackPanel x:Name="stkEditPrimaryModem" Grid.Row="1" Orientation="Vertical">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    
+                                    <Label Content="Modem Model:" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox x:Name="txtEditPrimaryModemModel" Grid.Row="0" Grid.Column="1" Margin="0,2,0,2"/>
+                                    
+                                    <Label Content="Modem Name:" Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox x:Name="txtEditPrimaryModemName" Grid.Row="1" Grid.Column="1" Margin="0,2,0,2"/>
+                                    
+                                    <Label Content="Modem S/N:" Grid.Row="2" Grid.Column="0"/>
+                                    <TextBox x:Name="txtEditPrimaryModemSN" Grid.Row="2" Grid.Column="1" Margin="0,2,0,2"/>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+
+            <!-- 6. Backup Circuit Tab -->
+            <TabItem Header="Backup Circuit">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        
+                        <CheckBox x:Name="chkEditHasBackupCircuit" Content="Site has Backup Circuit" Grid.Row="0" Margin="0,0,0,10"/>
+                        
+                        <Grid x:Name="grdEditBackupCircuit" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <!-- Left Column - Circuit Info -->
+                            <Grid Grid.Column="0" Margin="0,0,10,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                
+                                <Label Content="Vendor:" Grid.Row="0" Grid.Column="0"/>
+                                <TextBox x:Name="txtEditBackupVendor" Grid.Row="0" Grid.Column="1" Margin="0,2,0,2"/>
+                                
+                                <Label Content="Circuit Type:" Grid.Row="1" Grid.Column="0"/>
+                                <ComboBox x:Name="cmbEditBackupCircuitType" Grid.Row="1" Grid.Column="1" Margin="0,2,0,2">
+                                    <ComboBoxItem Content="Fiber"/>
+                                    <ComboBoxItem Content="Cable"/>
+                                    <ComboBoxItem Content="GPON Fiber"/>
+                                </ComboBox>
+                                
+                                <!-- GPON Fields -->
+                                <StackPanel x:Name="stkEditBackupGPON" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Vertical" Margin="0,5,0,5" Visibility="Collapsed">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Content="PPPoE Username:" Grid.Row="0" Grid.Column="0"/>
+                                        <TextBox x:Name="txtEditBackupPPPoEUsername" Grid.Row="0" Grid.Column="1" Margin="0,2,0,2"/>
+                                        <Label Content="PPPoE Password:" Grid.Row="1" Grid.Column="0"/>
+                                        <TextBox x:Name="txtEditBackupPPPoEPassword" Grid.Row="1" Grid.Column="1" Margin="0,2,0,2"/>
+                                    </Grid>
+                                </StackPanel>
+                                
+                                <Label Content="Circuit ID:" Grid.Row="3" Grid.Column="0"/>
+                                <TextBox x:Name="txtEditBackupCircuitID" Grid.Row="3" Grid.Column="1" Margin="0,2,0,2"/>
+                                
+                                <Label Content="Download Speed:" Grid.Row="4" Grid.Column="0"/>
+                                <TextBox x:Name="txtEditBackupDownloadSpeed" Grid.Row="4" Grid.Column="1" Margin="0,2,0,2"/>
+                                
+                                <Label Content="Upload Speed:" Grid.Row="5" Grid.Column="0"/>
+                                <TextBox x:Name="txtEditBackupUploadSpeed" Grid.Row="5" Grid.Column="1" Margin="0,2,0,2"/>
+                                
+                                <Label Content="IP Address:" Grid.Row="6" Grid.Column="0"/>
+                                <TextBox x:Name="txtEditBackupIPAddress" Grid.Row="6" Grid.Column="1" Margin="0,2,0,2"/>
+                                
+                                <Label Content="Subnet Mask:" Grid.Row="7" Grid.Column="0"/>
+                                <TextBox x:Name="txtEditBackupSubnetMask" Grid.Row="7" Grid.Column="1" Margin="0,2,0,2"/>
+                                
+                                <Label Content="Default Gateway:" Grid.Row="8" Grid.Column="0"/>
+                                <TextBox x:Name="txtEditBackupDefaultGateway" Grid.Row="8" Grid.Column="1" Margin="0,2,0,2"/>
+                                
+                                <Label Content="DNS 1:" Grid.Row="9" Grid.Column="0"/>
+                                <TextBox x:Name="txtEditBackupDNS1" Grid.Row="9" Grid.Column="1" Margin="0,2,0,2"/>
+                                
+                                <Label Content="DNS 2:" Grid.Row="10" Grid.Column="0"/>
+                                <TextBox x:Name="txtEditBackupDNS2" Grid.Row="10" Grid.Column="1" Margin="0,2,0,2"/>
+                                
+                                <Label Content="Router Model:" Grid.Row="11" Grid.Column="0"/>
+                                <TextBox x:Name="txtEditBackupRouterModel" Grid.Row="11" Grid.Column="1" Margin="0,2,0,2"/>
+                                
+                                <Label Content="Router Name:" Grid.Row="12" Grid.Column="0"/>
+                                <TextBox x:Name="txtEditBackupRouterName" Grid.Row="12" Grid.Column="1" Margin="0,2,0,2"/>
+                                
+                                <Label Content="Router S/N:" Grid.Row="13" Grid.Column="0"/>
+                                <TextBox x:Name="txtEditBackupRouterSN" Grid.Row="13" Grid.Column="1" Margin="0,2,0,2"/>
+                            </Grid>
+                            
+                            <!-- Right Column - Modem Section -->
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                
+                                <CheckBox x:Name="chkEditBackupHasModem" Content="Site has Modem" Grid.Row="0" Margin="0,0,0,10"/>
+                                
+                                <StackPanel x:Name="stkEditBackupModem" Grid.Row="1" Orientation="Vertical">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        
+                                        <Label Content="Modem Model:" Grid.Row="0" Grid.Column="0"/>
+                                        <TextBox x:Name="txtEditBackupModemModel" Grid.Row="0" Grid.Column="1" Margin="0,2,0,2"/>
+                                        
+                                        <Label Content="Modem Name:" Grid.Row="1" Grid.Column="0"/>
+                                        <TextBox x:Name="txtEditBackupModemName" Grid.Row="1" Grid.Column="1" Margin="0,2,0,2"/>
+                                        
+                                        <Label Content="Modem S/N:" Grid.Row="2" Grid.Column="0"/>
+                                        <TextBox x:Name="txtEditBackupModemSN" Grid.Row="2" Grid.Column="1" Margin="0,2,0,2"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+
+            <!-- 7. VLANs Tab -->
+            <TabItem Header="VLANs">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Label Content="VLAN 100 - Servers:" Grid.Row="0" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditVlan100" Grid.Row="0" Grid.Column="1" Margin="0,2,0,2"/>
+                        
+                        <Label Content="VLAN 101 - Network:" Grid.Row="1" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditVlan101" Grid.Row="1" Grid.Column="1" Margin="0,2,0,2"/>
+                        
+                        <Label Content="VLAN 102 - User 1:" Grid.Row="2" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditVlan102" Grid.Row="2" Grid.Column="1" Margin="0,2,0,2"/>
+                        
+                        <Label Content="VLAN 103 - User 2:" Grid.Row="3" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditVlan103" Grid.Row="3" Grid.Column="1" Margin="0,2,0,2"/>
+                        
+                        <Label Content="VLAN 104 - VOIP:" Grid.Row="4" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditVlan104" Grid.Row="4" Grid.Column="1" Margin="0,2,0,2"/>
+                        
+                        <Label Content="VLAN 105 - Wi-Fi Corp:" Grid.Row="5" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditVlan105" Grid.Row="5" Grid.Column="1" Margin="0,2,0,2"/>
+                        
+                        <Label Content="VLAN 106 - Wi-Fi BYOD:" Grid.Row="6" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditVlan106" Grid.Row="6" Grid.Column="1" Margin="0,2,0,2"/>
+                        
+                        <Label Content="VLAN 107 - Wi-Fi Guest:" Grid.Row="7" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditVlan107" Grid.Row="7" Grid.Column="1" Margin="0,2,0,2"/>
+                        
+                        <Label Content="VLAN 108 - Spare:" Grid.Row="8" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditVlan108" Grid.Row="8" Grid.Column="1" Margin="0,2,0,2"/>
+                        
+                        <Label Content="VLAN 109 - DMZ:" Grid.Row="9" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditVlan109" Grid.Row="9" Grid.Column="1" Margin="0,2,0,2"/>
+                        
+                        <Label Content="VLAN 110 - CCTV:" Grid.Row="10" Grid.Column="0"/>
+                        <TextBox x:Name="txtEditVlan110" Grid.Row="10" Grid.Column="1" Margin="0,2,0,2"/>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+
+            <!-- 8. CCTV Tab -->
+            <TabItem Header="CCTV">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        
+                        <StackPanel Grid.Row="0" Orientation="Vertical" Margin="0,0,0,15">
+                            <Label Content="Number of CCTV Cameras:"/>
+                            <ComboBox x:Name="cmbEditCCTVCount" Width="100" HorizontalAlignment="Left" SelectedIndex="-1">
+                                <ComboBoxItem Content="0"/>
+                                <ComboBoxItem Content="1"/>
+                                <ComboBoxItem Content="2"/>
+                                <ComboBoxItem Content="3"/>
+                                <ComboBoxItem Content="4"/>
+                                <ComboBoxItem Content="5"/>
+                                <ComboBoxItem Content="6"/>
+                                <ComboBoxItem Content="7"/>
+                                <ComboBoxItem Content="8"/>
+                                <ComboBoxItem Content="9"/>
+                                <ComboBoxItem Content="10"/>
+                            </ComboBox>
+                        </StackPanel>
+                        
+                        <Grid x:Name="stkEditCCTV" Grid.Row="1">
+                            <!-- Grid rows and columns will be added dynamically by PowerShell -->
+                        </Grid>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+
+            <!-- 9. UPS Tab -->
+            <TabItem Header="UPS">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        
+                        <StackPanel Grid.Row="0" Orientation="Vertical" Margin="0,0,0,15">
+                            <Label Content="Number of UPS:"/>
+                            <ComboBox x:Name="cmbEditUPSCount" Width="100" HorizontalAlignment="Left" SelectedIndex="-1">
+                                <ComboBoxItem Content="0"/>
+                                <ComboBoxItem Content="1"/>
+                                <ComboBoxItem Content="2"/>
+                                <ComboBoxItem Content="3"/>
+                                <ComboBoxItem Content="4"/>
+                                <ComboBoxItem Content="5"/>
+                            </ComboBox>
+                        </StackPanel>
+                        
+                        <Grid x:Name="stkEditUPS" Grid.Row="1">
+                            <!-- Grid rows and columns will be added dynamically by PowerShell -->
+                        </Grid>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+
+            <!-- 10. Printer Tab -->
+            <TabItem Header="Printer">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        
+                        <!-- Number of Printers - VERTICAL Layout -->
+                        <StackPanel Grid.Row="0" Orientation="Vertical" Margin="0,0,0,15">
+                            <Label Content="Number of Printers:"/>
+                            <ComboBox x:Name="cmbEditPrinterCount" Width="100" HorizontalAlignment="Left" SelectedIndex="-1">
+                                <ComboBoxItem Content="0"/>
+                                <ComboBoxItem Content="1"/>
+                                <ComboBoxItem Content="2"/>
+                                <ComboBoxItem Content="3"/>
+                                <ComboBoxItem Content="4"/>
+                                <ComboBoxItem Content="5"/>
+                                <ComboBoxItem Content="6"/>
+                            </ComboBox>
+                        </StackPanel>
+                        
+                        <!-- Printer Panels Container -->
+                        <Grid x:Name="stkEditPrinter" Grid.Row="1">
+                            <!-- Grid rows and columns will be added dynamically by PowerShell -->
+                        </Grid>
+                    </Grid>
+                </ScrollViewer>
+</TabItem>
+        </TabControl>
+
+        <!-- Action Buttons -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Status Text -->
+            <TextBlock x:Name="txtEditStatus" Grid.Column="0" VerticalAlignment="Center" 
+                       TextWrapping="Wrap" Margin="0,0,10,0"/>
+            
+            <!-- Buttons -->
+            <Button x:Name="btnSaveChanges" Content="Save Changes" Grid.Column="1" 
+                    Padding="15,5" Margin="0,0,10,0"/>
+            <Button x:Name="btnCancelEdit" Content="Cancel" Grid.Column="2" 
+                    Padding="15,5" Margin="0,0,10,0"/>
+            <Button x:Name="btnResetForm" Content="Reset" Grid.Column="3" 
+                    Padding="15,5"/>
+        </Grid>
+    </Grid>
+</Window>
