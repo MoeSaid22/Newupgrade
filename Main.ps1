@@ -21,21 +21,27 @@ if (-not (Test-Path $shortcutPath)) {
         Write-Host "Desktop shortcut created: $shortcutPath" -ForegroundColor Green
     }
     catch {
-        Write-Host "Warning: Could not create shortcut ($_)" -ForegroundColor Yellow
+        Write-Host "Warning: Could not create shortcut ($($_.Exception.Message))" -ForegroundColor Yellow
     }
 }
 
 # Main.ps1 - Launcher script with execution policy bypass
 
-# Set execution policy for this session only
-Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force -ErrorAction SilentlyContinue | Out-Null
+# Set execution policy for this session only (Windows only)
+try {
+    Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force -ErrorAction Stop | Out-Null
+}
+catch {
+    # Ignore execution policy errors on non-Windows platforms
+    Write-Host "Note: Execution policy setting not available on this platform" -ForegroundColor Yellow
+}
 
 # Get the directory where this script is located
 $scriptPath = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 # Path to the main script
-$appFolder = "Site Network Identifier"
-$mainScript = Join-Path $scriptPath $appFolder | Join-Path -ChildPath "Site.ps1"
+$appFolder = "Network Management"
+$mainScript = Join-Path $scriptPath $appFolder | Join-Path -ChildPath "Core" | Join-Path -ChildPath "Site.ps1"
 
 # Check if the app folder and main script exist
 $appFolderPath = Join-Path $scriptPath $appFolder
@@ -51,37 +57,50 @@ if (-not (Test-Path -Path $mainScript -PathType Leaf)) {
     exit 1
 }
 
-# Load required class definitions
-$importExportScript = Join-Path $appFolderPath "SiteImportExport.ps1"
-if (-not (Test-Path -Path $importExportScript -PathType Leaf)) {
-    Write-Host "ERROR: Import/Export script not found at $importExportScript" -ForegroundColor Red
-    Read-Host "Press Enter to exit"
-    exit 1
-}
-
-try {
-    . $importExportScript
-}
-catch {
-    Write-Host "ERROR: Failed to load class definitions: $_" -ForegroundColor Red
-    Read-Host "Press Enter to exit"
-    exit 1
-}
-
-# Check if WPF assemblies are available
+# Load required assemblies first (before any class definitions that depend on them)
 try {
     Add-Type -AssemblyName PresentationFramework -ErrorAction Stop | Out-Null
     Add-Type -AssemblyName PresentationCore -ErrorAction Stop | Out-Null
     Add-Type -AssemblyName WindowsBase -ErrorAction Stop | Out-Null
+    Add-Type -AssemblyName System.Windows.Forms -ErrorAction Stop | Out-Null
+    Write-Host "Loaded required assemblies" -ForegroundColor Green
 }
 catch {
-    Write-Host "ERROR: Failed to load WPF assemblies: $_" -ForegroundColor Red
+    Write-Host "ERROR: Failed to load required assemblies: $_" -ForegroundColor Red
     Read-Host "Press Enter to exit"
     exit 1
 }
 
+# Import all required modules
+$coreModules = @(
+    "DataModels.ps1",
+    "SiteImportExport.ps1", 
+    "IPNetworkModule.ps1",
+    "DeviceManager.ps1",
+    "EditSiteWindow.ps1"
+)
+
+foreach ($module in $coreModules) {
+    $modulePath = Join-Path $appFolderPath "Core" | Join-Path -ChildPath $module
+    if (-not (Test-Path $modulePath -PathType Leaf)) {
+        Write-Host "ERROR: Module not found at $modulePath" -ForegroundColor Red
+        Read-Host "Press Enter to exit"
+        exit 1
+    }
+    
+    try {
+        . $modulePath
+        Write-Host "Loaded module: $module" -ForegroundColor Green
+    }
+    catch {
+        Write-Host "ERROR: Failed to load module $module : $_" -ForegroundColor Red
+        Read-Host "Press Enter to exit"
+        exit 1
+    }
+}
+
 # Check XAML file
-$xamlPath = Join-Path (Split-Path $mainScript -Parent) "SiteNetworkIdentifier.xaml"
+$xamlPath = Join-Path (Split-Path $mainScript -Parent) ".." | Join-Path -ChildPath "UI" | Join-Path -ChildPath "SiteNetworkIdentifier.xaml"
 if (-not (Test-Path $xamlPath -PathType Leaf)) {
     Write-Host "ERROR: XAML file not found at $xamlPath" -ForegroundColor Red
     Read-Host "Press Enter to exit"

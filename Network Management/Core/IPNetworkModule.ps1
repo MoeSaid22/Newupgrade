@@ -29,7 +29,7 @@ class SubnetEntry {
 }
 
 class SubnetDataStore {
-    hidden [string]$DataFile = "$PSScriptRoot\ip_data.json"
+    hidden [string]$DataFile = "$(Split-Path $PSScriptRoot -Parent)\Data\ip_data.json"
     hidden [System.Collections.Generic.List[SubnetEntry]]$Entries
 
     SubnetDataStore() {
