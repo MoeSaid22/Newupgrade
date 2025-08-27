@@ -34,8 +34,8 @@ Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force -ErrorAction S
 $scriptPath = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 # Path to the main script
-$appFolder = "Site Network Identifier"
-$mainScript = Join-Path $scriptPath $appFolder | Join-Path -ChildPath "Site.ps1"
+$appFolder = "Network Management"
+$mainScript = Join-Path $scriptPath $appFolder | Join-Path -ChildPath "Core" | Join-Path -ChildPath "Site.ps1"
 
 # Check if the app folder and main script exist
 $appFolderPath = Join-Path $scriptPath $appFolder
@@ -52,9 +52,9 @@ if (-not (Test-Path -Path $mainScript -PathType Leaf)) {
 }
 
 # Load required class definitions
-$importExportScript = Join-Path $appFolderPath "SiteImportExport.ps1"
+$importExportScript = Join-Path $appFolderPath "Core" | Join-Path -ChildPath "DataModels.ps1"
 if (-not (Test-Path -Path $importExportScript -PathType Leaf)) {
-    Write-Host "ERROR: Import/Export script not found at $importExportScript" -ForegroundColor Red
+    Write-Host "ERROR: DataModels script not found at $importExportScript" -ForegroundColor Red
     Read-Host "Press Enter to exit"
     exit 1
 }
@@ -81,7 +81,7 @@ catch {
 }
 
 # Check XAML file
-$xamlPath = Join-Path (Split-Path $mainScript -Parent) "SiteNetworkIdentifier.xaml"
+$xamlPath = Join-Path (Split-Path $mainScript -Parent) ".." | Join-Path -ChildPath "UI" | Join-Path -ChildPath "SiteNetworkIdentifier.xaml"
 if (-not (Test-Path $xamlPath -PathType Leaf)) {
     Write-Host "ERROR: XAML file not found at $xamlPath" -ForegroundColor Red
     Read-Host "Press Enter to exit"
