@@ -473,4 +473,89 @@ class SiteDataStore {
         [System.Windows.MessageBox]::Show("Error saving site data: $_", "Data Save Error", "OK", "Error")
     }
 }
+
+    # Get all site entries as array
+    [SiteEntry[]] GetAllEntries() {
+        if ($this.Entries -eq $null -or $this.Entries.Count -eq 0) {
+            return @()
+        }
+        return $this.Entries.ToArray()
+    }
+
+    # Add a new site entry
+    [bool] AddEntry([SiteEntry]$entry) {
+        try {
+            if ($entry -eq $null) { return $false }
+            
+            # Check for duplicate Site Code
+            foreach ($existing in $this.Entries) {
+                if ($existing.SiteCode -eq $entry.SiteCode) {
+                    return $false
+                }
+            }
+            
+            $entry.ID = $this.GetNextAvailableId()
+            $this.Entries.Add($entry)
+            $this.SaveData()
+            return $true
+        } catch {
+            return $false
+        }
+    }
+
+    # Update an existing site entry
+    [bool] UpdateEntry([SiteEntry]$updatedEntry) {
+        try {
+            if ($updatedEntry -eq $null) { return $false }
+            
+            $index = -1
+            for ($i = 0; $i -lt $this.Entries.Count; $i++) {
+                if ($this.Entries[$i].ID -eq $updatedEntry.ID) {
+                    $index = $i
+                    break
+                }
+            }
+            
+            if ($index -ge 0) {
+                $this.Entries[$index] = $updatedEntry
+                $this.SaveData()
+                return $true
+            }
+            return $false
+        } catch {
+            return $false
+        }
+    }
+
+    # Delete site entries by IDs
+    [bool] DeleteEntries([int[]]$ids) {
+        try {
+            if ($ids -eq $null -or $ids.Count -eq 0) { return $false }
+            
+            $countBefore = $this.Entries.Count
+            $newList = [System.Collections.Generic.List[SiteEntry]]::new()
+            
+            foreach ($entry in $this.Entries) {
+                if ($entry.ID -notin $ids) {
+                    $newList.Add($entry)
+                }
+            }
+            
+            $this.Entries = $newList
+            $this.SaveData()
+            return $this.Entries.Count -lt $countBefore
+        } catch {
+            return $false
+        }
+    }
+
+    # Helper method to get next available ID
+    hidden [int] GetNextAvailableId() {
+        if ($this.Entries.Count -eq 0) { return 1 }
+        $maxId = 0
+        foreach ($entry in $this.Entries) {
+            if ($entry.ID -gt $maxId) { $maxId = $entry.ID }
+        }
+        return $maxId + 1
+    }
 }
