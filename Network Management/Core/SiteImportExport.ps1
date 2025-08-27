@@ -9,23 +9,6 @@ if (Test-Path $dataModelsPath) {
     Write-Error "DataModels.ps1 not found at: $dataModelsPath"
 }
 
-# Helper function for safe COM object release
-# COM Release Helper Function
-function Release-ComObject {
-    param($ComObject)
-    if ($ComObject) {
-        try {
-            $refCount = [System.Runtime.InteropServices.Marshal]::ReleaseComObject($ComObject)
-            # Keep releasing until reference count is 0
-            while ($refCount -gt 0) {
-                $refCount = [System.Runtime.InteropServices.Marshal]::ReleaseComObject($ComObject)
-            }
-        } catch {
-            # Silent fail on release
-        }
-    }
-    return $null
-}
 
 # Helper function for safe values
 function Get-SafeValue {

@@ -174,7 +174,12 @@ class SiteEntry {
 
 # Safely release COM objects to prevent memory leaks
 function Release-ComObject {
-    param($ComObject)
+    [CmdletBinding()]
+    param(
+        [Parameter(Position=0)]
+        [System.Object]$ComObject
+    )
+    
     if ($ComObject) {
         try {
             $refCount = [System.Runtime.InteropServices.Marshal]::ReleaseComObject($ComObject)

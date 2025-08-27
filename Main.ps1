@@ -21,14 +21,20 @@ if (-not (Test-Path $shortcutPath)) {
         Write-Host "Desktop shortcut created: $shortcutPath" -ForegroundColor Green
     }
     catch {
-        Write-Host "Warning: Could not create shortcut ($_)" -ForegroundColor Yellow
+        Write-Host "Warning: Could not create shortcut ($($_.Exception.Message))" -ForegroundColor Yellow
     }
 }
 
 # Main.ps1 - Launcher script with execution policy bypass
 
-# Set execution policy for this session only
-Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force -ErrorAction SilentlyContinue | Out-Null
+# Set execution policy for this session only (Windows only)
+try {
+    Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force -ErrorAction Stop | Out-Null
+}
+catch {
+    # Ignore execution policy errors on non-Windows platforms
+    Write-Host "Note: Execution policy setting not available on this platform" -ForegroundColor Yellow
+}
 
 # Get the directory where this script is located
 $scriptPath = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -51,29 +57,13 @@ if (-not (Test-Path -Path $mainScript -PathType Leaf)) {
     exit 1
 }
 
-# Load required class definitions
-$importExportScript = Join-Path $appFolderPath "Core" | Join-Path -ChildPath "DataModels.ps1"
-if (-not (Test-Path -Path $importExportScript -PathType Leaf)) {
-    Write-Host "ERROR: DataModels script not found at $importExportScript" -ForegroundColor Red
-    Read-Host "Press Enter to exit"
-    exit 1
-}
-
-try {
-    . $importExportScript
-}
-catch {
-    Write-Host "ERROR: Failed to load class definitions: $_" -ForegroundColor Red
-    Read-Host "Press Enter to exit"
-    exit 1
-}
-
-# Check if all required assemblies are available
+# Load required assemblies first (before any class definitions that depend on them)
 try {
     Add-Type -AssemblyName PresentationFramework -ErrorAction Stop | Out-Null
     Add-Type -AssemblyName PresentationCore -ErrorAction Stop | Out-Null
     Add-Type -AssemblyName WindowsBase -ErrorAction Stop | Out-Null
     Add-Type -AssemblyName System.Windows.Forms -ErrorAction Stop | Out-Null
+    Write-Host "Loaded required assemblies" -ForegroundColor Green
 }
 catch {
     Write-Host "ERROR: Failed to load required assemblies: $_" -ForegroundColor Red
