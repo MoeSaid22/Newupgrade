@@ -1,0 +1,1 @@
+Please fix the missing GetAllEntries method in SiteDataStore class and ensure all methods are properly preserved during refactoring.
