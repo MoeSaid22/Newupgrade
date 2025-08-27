@@ -1,25 +1,9 @@
 # ===================================================================
-# IMPORT DEPENDENCIES
-# ===================================================================
-
-# Load device models and utilities first
-. (Join-Path $PSScriptRoot "DeviceModels.ps1")
-. (Join-Path $PSScriptRoot "SiteUtilities.ps1")
-. (Join-Path $PSScriptRoot "SiteModels.ps1")
-
-# Load WPF components if available
-try {
-    . (Join-Path $PSScriptRoot "WPFComponents.ps1")
-} catch {
-    Write-Verbose "WPF components not available - skipping PhoneNumberConverter"
-}
-
-# ===================================================================
 # PHONE NUMBER CONVERTER CLASS
 # ===================================================================
 
-# Define XAML file path - Now in Core/Site/, need to go up two levels to UI
-$xamlFile = Join-Path (Split-Path (Split-Path -Parent $MyInvocation.MyCommand.Path) -Parent) "UI" | Join-Path -ChildPath "NetworkManagement.xaml"
+# Define XAML file path
+$xamlFile = Join-Path (Split-Path -Parent $MyInvocation.MyCommand.Path) ".." | Join-Path -ChildPath "UI" | Join-Path -ChildPath "NetworkManagement.xaml"
 
 # ===================================================================
 # SITE VALIDATION FUNCTIONS
@@ -309,13 +293,13 @@ try {
     } 
     else {
         $errorMsg = "DeviceManager.ps1 not found at: $deviceManagerPath"
-        Show-MessageBox $errorMsg "Module Error" "OK" "Error"
+        [System.Windows.MessageBox]::Show($errorMsg, "Module Error", "OK", "Error")
         exit 1
     }
 }
 catch {
     $errorMsg = "Failed to load DeviceManager.ps1: $_"
-    Show-MessageBox $errorMsg "Module Error" "OK" "Error"
+    [System.Windows.MessageBox]::Show($errorMsg, "Module Error", "OK", "Error")
     exit 1
 }
 
@@ -1455,7 +1439,7 @@ $null = $stkSiteDetails.Children.Add($mainGrid)
 
     }
     catch {
-        Show-MessageBox "Error displaying site details: $_" "Display Error" "OK" "Error"
+        [System.Windows.MessageBox]::Show("Error displaying site details: $_", "Display Error", "OK", "Error")
     }
 }
 
@@ -1500,7 +1484,7 @@ if (-not $scriptPath) {
 
 # Validate XAML file exists and is readable
 if (-not (Test-Path $xamlFile)) {
-    Show-MessageBox "XAML file not found: $xamlFile" "File Error" "OK" "Error"
+    [System.Windows.MessageBox]::Show("XAML file not found: $xamlFile", "File Error", "OK", "Error")
     exit
 }
 
@@ -1510,7 +1494,7 @@ try {
     $xml = [xml]$xaml
 }
 catch {
-    Show-MessageBox "Error loading XAML: $_" "XAML Error" "OK" "Error"
+    [System.Windows.MessageBox]::Show("Error loading XAML: $_", "XAML Error", "OK", "Error")
     exit
 }
 
@@ -1531,7 +1515,7 @@ try {
     $mainWin.Resources = $resourceDict
 }
 catch {
-    Show-MessageBox "Error creating window: $_" "Window Creation Error" "OK" "Error"
+    [System.Windows.MessageBox]::Show("Error creating window: $_", "Window Creation Error", "OK", "Error")
     exit
 }
 
@@ -2213,13 +2197,13 @@ try {
     } 
     else {
         $errorMsg = "EditSiteWindow.ps1 not found at: $editWindowPath"
-        Show-MessageBox $errorMsg "Module Error" "OK" "Error"
+        [System.Windows.MessageBox]::Show($errorMsg, "Module Error", "OK", "Error")
         exit 1
     }
 }
 catch {
     $errorMsg = "Failed to load EditSiteWindow.ps1: $_"
-    Show-MessageBox $errorMsg "Module Error" "OK" "Error"
+    [System.Windows.MessageBox]::Show($errorMsg, "Module Error", "OK", "Error")
     exit 1
 }
 
@@ -2276,7 +2260,7 @@ $mainWin.Add_Loaded({
         $txtSecondContactPhone.Add_LostFocus({ $this.Text = Format-PhoneNumber $this.Text })
         
     } catch {
-        Show-MessageBox "Error initializing application: $_" "Initialization Error" "OK" "Error"
+        [System.Windows.MessageBox]::Show("Error initializing application: $_", "Initialization Error", "OK", "Error")
     }
 })
 

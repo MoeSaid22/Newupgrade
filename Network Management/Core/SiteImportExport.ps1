@@ -1,5 +1,13 @@
 # SiteImportExport.ps1 - Import/Export functionality for Network Management
-# Note: Device models are loaded through Main.ps1
+
+# Import data models
+$scriptPath = Split-Path -Parent $MyInvocation.MyCommand.Path
+$dataModelsPath = Join-Path $scriptPath "DataModels.ps1"
+if (Test-Path $dataModelsPath) {
+    . $dataModelsPath
+} else {
+    Write-Error "DataModels.ps1 not found at: $dataModelsPath"
+}
 
 # Helper function for safe COM object release
 # COM Release Helper Function

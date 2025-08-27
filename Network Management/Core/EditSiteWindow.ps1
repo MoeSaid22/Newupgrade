@@ -1,5 +1,13 @@
 # EditSiteWindow.ps1 - Edit site window functions for Network Management
-# Note: Device models are loaded through Main.ps1
+
+# Import required modules
+$scriptPath = Split-Path -Parent $MyInvocation.MyCommand.Path
+
+# Import data models
+$dataModelsPath = Join-Path $scriptPath "DataModels.ps1"
+if (Test-Path $dataModelsPath) {
+    . $dataModelsPath
+}
 
 # ===================================================================
 # EDIT SITE POPUP WINDOW FUNCTIONS

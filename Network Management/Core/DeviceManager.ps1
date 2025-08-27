@@ -1,5 +1,13 @@
 # DeviceManager.ps1 - Device management classes and functions for Network Management
-# Note: Device models are loaded through Main.ps1
+
+# Import required modules
+$scriptPath = Split-Path -Parent $MyInvocation.MyCommand.Path
+
+# Import data models
+$dataModelsPath = Join-Path $scriptPath "DataModels.ps1"
+if (Test-Path $dataModelsPath) {
+    . $dataModelsPath
+}
 
 # Utility function - duplicated to avoid circular dependency
 function Get-SafeValue {
@@ -89,7 +97,7 @@ class UniversalDevicePanelFactory {
             return $groupBox
             
         } catch {
-            Show-MessageBox "Error creating $($Config.Type) panel: $_" "Panel Creation Error" "OK" "Error"
+            [System.Windows.MessageBox]::Show("Error creating $($Config.Type) panel: $_", "Panel Creation Error", "OK", "Error")
             return $null
         }
     }
@@ -369,7 +377,7 @@ class DevicePanelManager {
             [UniversalDataCollector]::RestoreDeviceData($config, $stackPanel, $existingData, $count, $controlPrefix)
             
         } catch {
-            Show-MessageBox "Error updating $deviceType panels: $_" "Panel Update Error" "OK" "Error"
+            [System.Windows.MessageBox]::Show("Error updating $deviceType panels: $_", "Panel Update Error", "OK", "Error")
         }
     }
     
