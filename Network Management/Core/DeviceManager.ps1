@@ -980,3 +980,29 @@ function Update-VLANsAndIPsFromSubnet {
     }
 }
 
+# Device count change handler function
+function Handle-DeviceCountChanged {
+    param(
+        [string]$DeviceType,
+        [System.Windows.Controls.ComboBox]$ComboBox,
+        [object]$DeviceManager,
+        [object]$txtSiteCode,
+        [object]$txtSiteSubnet
+    )
+    
+    if ($ComboBox.SelectedItem) {
+        $count = [int]$ComboBox.SelectedItem.Content
+        $DeviceManager.UpdateDevicePanels($DeviceType, $count)
+        Write-Host "DEBUG: About to update panels for DeviceType: '$DeviceType', count: $count"
+        
+        # Auto-populate names and IPs if site code/subnet exists
+        if (-not [string]::IsNullOrWhiteSpace($txtSiteCode.Text)) {
+            $DeviceManager.UpdateDeviceNamesFromSiteCode($DeviceType, $txtSiteCode.Text)
+        }
+        if (-not [string]::IsNullOrWhiteSpace($txtSiteSubnet.Text)) {
+            if ($txtSiteSubnet.Text -match '^(\d+\.\d+)\.') {
+                $DeviceManager.UpdateDeviceIPsFromSubnet($DeviceType, $matches[1])
+            }
+        }
+    }
+}
