@@ -68,16 +68,45 @@ catch {
     exit 1
 }
 
-# Check if WPF assemblies are available
+# Check if all required assemblies are available
 try {
     Add-Type -AssemblyName PresentationFramework -ErrorAction Stop | Out-Null
     Add-Type -AssemblyName PresentationCore -ErrorAction Stop | Out-Null
     Add-Type -AssemblyName WindowsBase -ErrorAction Stop | Out-Null
+    Add-Type -AssemblyName System.Windows.Forms -ErrorAction Stop | Out-Null
 }
 catch {
-    Write-Host "ERROR: Failed to load WPF assemblies: $_" -ForegroundColor Red
+    Write-Host "ERROR: Failed to load required assemblies: $_" -ForegroundColor Red
     Read-Host "Press Enter to exit"
     exit 1
+}
+
+# Import all required modules
+$coreModules = @(
+    "DataModels.ps1",
+    "SiteImportExport.ps1", 
+    "IPNetworkModule.ps1",
+    "DeviceManager.ps1",
+    "EditSiteWindow.ps1"
+)
+
+foreach ($module in $coreModules) {
+    $modulePath = Join-Path $appFolderPath "Core" | Join-Path -ChildPath $module
+    if (-not (Test-Path $modulePath -PathType Leaf)) {
+        Write-Host "ERROR: Module not found at $modulePath" -ForegroundColor Red
+        Read-Host "Press Enter to exit"
+        exit 1
+    }
+    
+    try {
+        . $modulePath
+        Write-Host "Loaded module: $module" -ForegroundColor Green
+    }
+    catch {
+        Write-Host "ERROR: Failed to load module $module : $_" -ForegroundColor Red
+        Read-Host "Press Enter to exit"
+        exit 1
+    }
 }
 
 # Check XAML file
